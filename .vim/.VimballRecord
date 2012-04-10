@@ -1,0 +1,2 @@
+Colorizer-0.5.vmb: call delete('/Users/yogesh/.vim/plugin/ColorizerPlugin.vim')|call delete('/Users/yogesh/.vim/doc/Colorizer.txt')|call delete('/Users/yogesh/.vim/autoload/Colorizer.vim')
+rainbow_parenthsis-4.0.vba: call delete('/Users/yogesh/.vim/autoload/rainbow_parenthsis.vim')|call delete('/Users/yogesh/.vim/doc/rainbow_parenthsis.txt')|call delete('/Users/yogesh/.vim/plugin/rainbow_parenthsis.vim')|call delete('/Users/yogesh/.vim/rainbow_parenthsis_options.vim')
