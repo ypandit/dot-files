@@ -1,23 +1,19 @@
-
 "
 set nocompatible
 
 " Setting file type detection off before calling pathogen()
-" filetype off
+filetype off
 
 " Loading the pathogen package
-" call pathogen#runtime_append_all_bundles()
-runtime autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
 
+if has("autocmd")
 " Enable file type detection
-filetype plugin on
-filetype indent on
+filetype plugin indent on
+endif
 
 " Better command-line completion
 set wildmenu
-set wildmode=list:longest
 
 " Allow cursor keys in insert mode
 "set noesckeys
@@ -40,15 +36,14 @@ set nobackup
 set nowritebackup
 
 " Backups and swapfiles
-" set backupdir=~/.vim/backups
-" set directory=~/.vim/swaps
-
-set noswapfile
-set nobackup
-set nowb
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
 
 " Enable line numbers
 set number
+
+" Enable syntax highlighting
+syntax on
 
 " Highlight current line
 set cursorline
@@ -96,22 +91,9 @@ set showcmd
 nnoremap ; :
 
 "
-set hidden
-
-" Enable syntax highlighting
-syntax on
-syntax enable
-
-" Solarized colorscheme for Vim
-" let g:solarized_termcolors=256
 set t_Co=256
+let g:solarized_termcolors=256
 set background=dark
-if !has('gui_running')
-  let g:solarized_termcolors=&t_Co
-  let g:solarized_termtrans=1
-  "let g:solarized_visibility = "high"
-  "let g:solarized_contrast = "high"
-endif
 colorscheme solarized
 
 " Show matching parenthesis
@@ -140,10 +122,4 @@ set wrap
 
 " Use system clipboard
 set clipboard=unnamed
-
-
-
-
-
-
 
