@@ -1,6 +1,9 @@
 "
 set nocompatible
 
+" 
+" let mapleader = ","
+
 " Setting file type detection off before calling pathogen()
 filetype off
 
@@ -36,8 +39,8 @@ set nobackup
 set nowritebackup
 
 " Backups and swapfiles
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
+set backupdir=~/.files/.vim/tmp
+set directory=~/.files/.vim/tmp
 
 " Enable line numbers
 set number
@@ -123,3 +126,7 @@ set wrap
 " Use system clipboard
 set clipboard=unnamed
 
+" Tagbar
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'	" Proper ctags locations
+let g:tagbar_width=35	" Width of the tagbar pane
+" nmap <Leader>t :TagbarToggle
