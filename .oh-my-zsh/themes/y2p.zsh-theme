@@ -1,5 +1,5 @@
 
-local current_dir='%{$terminfo[bold]$fg[cyan]%} %~%{$reset_color%}'
+local current_dir='%{$terminfo[bold]$fg[blue]%} %~%{$reset_color%}'
 
 # perl|ruby|python prompt info
 local rvm_ruby='$fg[green]$(rvm_prompt_info)%{$reset_color%}'
