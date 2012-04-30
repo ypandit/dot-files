@@ -94,9 +94,17 @@ set showcmd
 nnoremap ; :
 
 "
+" set t_Co=256
+" let g:solarized_termcolors=256
+" set background=dark
+" colorscheme solarized
+
 set t_Co=256
-let g:solarized_termcolors=256
 set background=dark
+if !has('gui_running')
+  let g:solarized_termcolors=&t_Co
+  let g:solarized_termtrans=1
+endif
 colorscheme solarized
 
 " Show matching parenthesis
