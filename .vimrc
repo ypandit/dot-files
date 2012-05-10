@@ -5,15 +5,15 @@ set nocompatible
 " let mapleader = ","
 
 " Setting file type detection off before calling pathogen()
-filetype off
+" filetype off
 
 " Loading the pathogen package
 call pathogen#runtime_append_all_bundles()
 
-if has("autocmd")
+"if has("autocmd")
 " Enable file type detection
 filetype plugin indent on
-endif
+"endif
 
 " Better command-line completion
 set wildmenu
@@ -39,8 +39,8 @@ set nobackup
 set nowritebackup
 
 " Backups and swapfiles
-set backupdir=~/.files/.vim/tmp
-set directory=~/.files/.vim/tmp
+" set backupdir=~/.files/.vim/tmp
+" set directory=~/.files/.vim/tmp
 
 " Enable line numbers
 set number
@@ -93,18 +93,11 @@ set showcmd
 "
 nnoremap ; :
 
-"
-" set t_Co=256
-" let g:solarized_termcolors=256
-" set background=dark
-" colorscheme solarized
-
-set t_Co=256
+" Solarized colorscheme for Vim
+syntax enable
+let g:solarized_termtrans = 1
+let g:solarized_termcolors=256
 set background=dark
-if !has('gui_running')
-  let g:solarized_termcolors=&t_Co
-  let g:solarized_termtrans=1
-endif
 colorscheme solarized
 
 " Show matching parenthesis
@@ -126,7 +119,7 @@ set noexrc
 set shiftwidth=4
 
 " Set font
-set guifont=Monaco
+" set guifont=Monaco
 
 " Wrap text
 set wrap
