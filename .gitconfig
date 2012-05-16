@@ -5,7 +5,7 @@
   	br = branch
   	ch = checkout
   	df = diff
-	lg = log --graph --pretty=format:'%C(green)%h%Creset %C(yellow)%d%Creset | %an | %C(red)%ar%Creset | %C(cyan)%s%Creset' 
+	lg = log --graph --pretty=format:'%C(green)%h%Creset %C(yellow)%d%Creset | %C(blue)%an%Creset | %C(red)%ar%Creset | %C(cyan)%s%Creset' 
 [core]
 	excludesfile = ~/.gitignore_global
 [color]
@@ -17,9 +17,9 @@
 [color "diff"]
 	meta = yellow
 	frag = magenta
-	old = red bold
-	new = green bold
+	old = red
+	new = green
 [color "status"]
-	added = yellow
+	added = blue
 	changed = green
-	untracked = cyan
+	untracked = red
