@@ -5,6 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+#ZSH_THEME="zanshin"
 ZSH_THEME="y2p"
 
 # Example aliases
@@ -33,19 +34,4 @@ plugins=(osx git ruby rvm perl python brew rails3 cpanm)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=/bin:/sbin:$HOME/perl5/perlbrew/bin:$HOME/perl5/perlbrew/perls/perl-5.12.4/bin:$HOME/.pythonbrew/bin:$HOME/.pythonbrew/pythons/Python-2.7.2/bin:/usr/local/bin:$HOME/Programs/Circos/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/X11/bin:/usr/texbin:$HOME/.rvm/bin:$HOME/Programs/Julia
-
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages
-
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
- 
-# pythonbrew path
-[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
- 
-# perlbrew path
-source ~/perl5/perlbrew/etc/bashrc                           
-
-[[ -r "$HOME/.smartcd_config" ]] && source ~/.smartcd_config
+source $HOME/.profile
