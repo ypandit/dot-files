@@ -5,7 +5,7 @@ set nocompatible
 " let mapleader = ","
 
 " Setting file type detection off before calling pathogen()
-" filetype off
+filetype off
 
 " Loading the pathogen package
 call pathogen#runtime_append_all_bundles()
@@ -46,7 +46,8 @@ set nowritebackup
 set number
 
 " Enable syntax highlighting
-syntax on
+" syntax on
+syntax enable
 
 " Highlight current line
 set cursorline
@@ -94,7 +95,6 @@ set showcmd
 nnoremap ; :
 
 " Solarized colorscheme for Vim
-syntax enable
 let g:solarized_termtrans = 1
 let g:solarized_termcolors=256
 set background=dark

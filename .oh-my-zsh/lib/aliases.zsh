@@ -9,13 +9,17 @@ alias hist='fc -l 1'
 alias ..="cd .."
 alias c="cd"
 
-# Shortcuts
+# Folder shortcuts
 alias db="cd ~/Documents/Dropbox"
 alias pj="cd ~/Projects"
 alias dicty="cd ~/Projects/dictyBase"
+alias vm="cd ~/Documents/VMs"
+
+# Developer tools
 alias v="vim"
 alias q="exit"
-alias vm="cd ~/Documents/VMs"
+alias pyb="pythonbrew"
+alias plb="perlbrew"
 
 # Untar
 alias untar="tar xzfv"
