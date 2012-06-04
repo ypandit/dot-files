@@ -20,6 +20,7 @@ alias v="vim"
 alias q="exit"
 alias pyb="pythonbrew"
 alias plb="perlbrew"
+alias vl='vim -u /usr/share/vim/vim73/macros/less.vim'
 
 # Untar
 alias untar="tar xzfv"
