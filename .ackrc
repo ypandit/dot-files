@@ -1,0 +1,13 @@
+
+# File types to search
+--type-add=html=.html.erb,.html.ep
+--type-set=markdown=.markdown,.md
+--type-set=log=.log
+--type-set=conf=.conf
+
+# Configurations
+--ignore-dir=tmp
+--sort-files
+--color
+--follow
+--group
