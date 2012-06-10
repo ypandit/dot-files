@@ -33,7 +33,7 @@ alias ll="ls -la"
 alias dir='ls -l | grep "^d"'
 
 # Updates
-alias update='brew update; brew upgrade; upgrade_oh_my_zsh; pythonbrew update'
+alias update='brew update; brew upgrade; upgrade_oh_my_zsh; pythonbrew update; cd ~/.dot-files && git submodule foreach git pull origin master'
 alias macupdate='_ softwareupdate -i -a'
 
 # Cleanup
