@@ -35,12 +35,13 @@ set binary
 set noeol
 
 " Don't make a backup before overwriting a file.
+set noswapfile
 set nobackup
 set nowritebackup
 
 " Backups and swapfiles
-" set backupdir=~/.files/.vim/tmp
-" set directory=~/.files/.vim/tmp
+set backupdir=~/.dot-files/.vim/tmp
+set directory=~/.dot-files/.vim/tmp
 
 " Enable line numbers
 set number
