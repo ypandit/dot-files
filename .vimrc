@@ -2,7 +2,7 @@
 set nocompatible
 
 " 
-" let mapleader = ","
+let mapleader = ","
 
 " Setting file type detection off before calling pathogen()
 filetype off
@@ -127,6 +127,9 @@ set wrap
 
 " Use system clipboard
 set clipboard=unnamed
+
+" Preserve indentation while pasting text from the OS X clipboard
+noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 " Tagbar
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'	" Proper ctags locations
