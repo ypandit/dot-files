@@ -1,21 +1,27 @@
-[submodule ".vim/bundle/fugitive"]
-	path = .vim/bundle/fugitive
+[submodule "vim/bundle/fugitive"]
+	path = vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/powerline"]
-	path = .vim/bundle/powerline
+[submodule "vim/bundle/powerline"]
+	path = vim/bundle/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
-[submodule ".vim/bundle/solarized-colors"]
-	path = .vim/bundle/solarized-colors
+[submodule "vim/bundle/solarized-colors"]
+	path = vim/bundle/solarized-colors
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule ".vim/bundle/tagbar"]
-	path = .vim/bundle/tagbar
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
-[submodule ".vim/bundle/supertab"]
-	path = .vim/bundle/supertab
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule ".vim/bundle/markdown"]
-	path = .vim/bundle/markdown
+[submodule "vim/bundle/markdown"]
+	path = vim/bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
+[submodule "vim/bundle/python-mode"]
+	path = vim/bundle/python-mode
+	url = https://github.com/klen/python-mode.git
+[submodule "vim/bundle/NERDtree"]
+	path = vim/bundle/NERDtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/bundle/Command-T"]
+	path = vim/bundle/Command-T
+	url = https://github.com/wincent/Command-T.git
