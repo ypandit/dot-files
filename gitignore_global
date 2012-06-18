@@ -1,0 +1,11 @@
+
+# OSC crap
+.DS_Store
+
+# Build files
+*.pyc
+*.class
+
+# Backup files
+*.swp
+*.bak
