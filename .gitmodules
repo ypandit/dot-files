@@ -28,3 +28,6 @@
 [submodule "vim/bundle/gitv"]
 	path = vim/bundle/gitv
 	url = https://github.com/gregsexton/gitv.git
+[submodule "vim/bundle/preview"]
+	path = vim/bundle/preview
+	url = https://github.com/greyblake/vim-preview.git
