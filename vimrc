@@ -20,7 +20,7 @@ filetype indent on
 set wildmenu
 
 " Allow cursor keys in insert mode
-"set noesckeys
+" set noesckeys
 
 " Optimize for fast terminal connections
 set ttyfast
@@ -45,8 +45,8 @@ set nobackup
 set nowritebackup
 
 " Backups and swapfiles
-set backupdir=~/.dot-files/.vim/tmp
-set directory=~/.dot-files/.vim/tmp
+set backupdir=~/.dot-files/vim/tmp
+set directory=~/.dot-files/vim/tmp
 
 " Enable line numbers
 set number
@@ -83,7 +83,7 @@ set mouse=a
 set visualbell
 
 " Set fillchars
-set fillchars+=stl:\ ,stlnc:\
+" set fillchars+=stl:\ ,stlnc:\
 
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
@@ -127,9 +127,6 @@ set noexrc
 " Number of spaces to use for autoindenting
 set shiftwidth=4
 
-" Set font
-" set guifont=Monaco
-
 " Wrap text
 set wrap
 
@@ -142,9 +139,15 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 " Tagbar
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'	" Proper ctags locations
 let g:tagbar_width=35	" Width of the tagbar pane
-" nmap <Leader>t :TagbarToggle
+" nmap <leader>t :TagbarToggle
 
 " Powerline symbols
-" set guifont=Monaco\ for\ Powerline:h14
 let g:Powerline_symbols = 'fancy'
-call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo') 
+let g:Powerline_stl_path_style = 'short'
+call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
+
+" python-mode
+let g:pymode_folding = 0 "Disable python folding
+let g:pymode_lint_signs = 1 "Place error signs
+let g:pymode_virtualenv = 1 "Auto fix vim python paths if virtualenv enabled
+
