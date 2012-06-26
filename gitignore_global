@@ -1,11 +1,20 @@
 
-# OSC crap
+# OSX crap
 .DS_Store
+
+# Log files
+log/
 
 # Build files
 *.pyc
 *.class
+_build/
+Build
+MYMETA.*
+blib/
 
 # Backup files
 *.swp
 *.bak
+*.swn
+*.swo
