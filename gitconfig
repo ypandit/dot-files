@@ -1,6 +1,6 @@
 
 [alias]
- 	st = status
+ 	st = status -sb
   	co = commit
   	br = branch
   	ch = checkout
@@ -8,6 +8,7 @@
 	lg = log --graph --pretty=format:'%C(green)%h%Creset %C(yellow)%d%Creset | %C(blue)%an%Creset | %C(red)%ar%Creset | %C(cyan)%s%Creset' 
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = vim
 [color]
 	ui = auto
 [color "branch"]
