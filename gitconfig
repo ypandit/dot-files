@@ -1,4 +1,7 @@
 
+[user]
+	name = Yogesh Pandit
+	email = yogeshp08@gmail.com
 [alias]
  	st = status -sb
   	co = commit
