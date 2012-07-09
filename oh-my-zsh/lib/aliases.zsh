@@ -14,6 +14,7 @@ alias db="cd ~/Documents/Dropbox"
 alias pj="cd ~/Projects"
 alias dicty="cd ~/Projects/dictyBase"
 alias vm="cd ~/Documents/VMs"
+alias h="cd ~/"
 
 # Developer tools
 alias v="vim"
