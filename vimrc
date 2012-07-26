@@ -1,8 +1,7 @@
 "
 set nocompatible
-
-" 
-let mapleader = ","
+ 
+let mapleader = "," "
 
 " Setting file type detection off before calling pathogen()
 filetype off
@@ -16,28 +15,22 @@ filetype plugin on
 filetype indent on
 "endif
 
-" Better command-line completion
-set wildmenu
+set wildmenu " Better command-line completion
 
 " Allow cursor keys in insert mode
 " set noesckeys
 
-" Optimize for fast terminal connections
-set ttyfast
+set ttyfast " Optimize for fast terminal connections
 
-" Add the g flag to search/replace by default
-set gdefault
+set gdefault " Add the g flag to search/replace by default
 
 " Use UTF-8 without BOM
 set encoding=utf-8 
 set nobomb
 
-" No empty newlines at the end of files
-set binary
-" set noeol
+set binary " No empty newlines at the end of files
 
-" Enable backspace in VIm
-set backspace=indent,eol,start
+set backspace=indent,eol,start " Enable backspace in VIm
 
 " Don't make a backup before overwriting a file.
 set noswapfile
@@ -52,7 +45,7 @@ set directory=~/.dot-files/vim/tmp
 set number
 
 " Enable syntax highlighting
-" syntax on
+syntax on
 syntax enable
 
 " Highlight current line
@@ -121,14 +114,12 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 " Make <tab> & <backspace> smarter
 set smarttab
 
-"
-set noexrc
+set noexrc " 
 
 " Number of spaces to use for autoindenting
 set shiftwidth=4
 
-" Wrap text
-set wrap
+set wrap " Wrap text
 
 " Use system clipboard
 set clipboard=unnamed
@@ -136,18 +127,32 @@ set clipboard=unnamed
 " Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
+" ---------------TagBar ---------------
 " Tagbar
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'	" Proper ctags locations
 let g:tagbar_width=35	" Width of the tagbar pane
-" nmap <leader>t :TagbarToggle
 
+" --------------- PowerLine ---------------
 " Powerline symbols
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_stl_path_style = 'short'
 call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 
+" --------------- Python ---------------
 " python-mode
 let g:pymode_folding = 0 "Disable python folding
 let g:pymode_lint_signs = 1 "Place error signs
 let g:pymode_virtualenv = 1 "Auto fix vim python paths if virtualenv enabled
 
+" --------------- Haskell ---------------
+au Bufenter *.hs compiler ghc " Use GHC functionality for Haskell files
+
+" Configure browser for haskell_doc.vim
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s %s"
+
+" --------------- Startup items ---------------
+autocmd VimEnter * NERDTree
+autocmd BufEnter * NERDTreeMirror
+
+autocmd VimEnter * wincmd w
