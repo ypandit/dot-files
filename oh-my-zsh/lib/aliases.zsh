@@ -23,6 +23,9 @@ alias pyb="pythonbrew"
 alias plb="perlbrew"
 alias vl='vim -u /usr/share/vim/vim73/macros/less.vim'
 
+# Bio tools
+alias maker='perl -I /usr/local/gmod/maker/lib /usr/local/gmod/maker/bin/maker'
+
 # Untar
 alias untar="tar xzfv"
 
