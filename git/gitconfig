@@ -27,3 +27,7 @@
 	added = blue
 	changed = green
 	untracked = red
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
