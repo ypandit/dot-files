@@ -31,3 +31,6 @@
 [submodule "vim/bundle/preview"]
 	path = vim/bundle/preview
 	url = https://github.com/greyblake/vim-preview.git
+[submodule "vim/bundle/NERDcommenter"]
+	path = vim/bundle/NERDcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
