@@ -22,6 +22,7 @@ alias q="exit"
 alias pyb="pythonbrew"
 alias plb="perlbrew"
 alias vl='vim -u /usr/share/vim/vim73/macros/less.vim'
+alias t='todo.sh -d ~/.dot-files/todo.txt/todo.cfg'
 
 # Bio tools
 alias maker='perl -I /usr/local/gmod/maker/lib /usr/local/gmod/maker/bin/maker'
