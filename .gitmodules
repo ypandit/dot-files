@@ -40,3 +40,6 @@
 [submodule "vim/bundle/mojolicious"]
 	path = vim/bundle/mojolicious
 	url = https://github.com/yko/mojo.vim.git
+[submodule "vim/bundle/snipMate"]
+	path = vim/bundle/snipMate
+	url = https://github.com/msanders/snipmate.vim.git
