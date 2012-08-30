@@ -34,3 +34,9 @@
 [submodule "vim/bundle/NERDcommenter"]
 	path = vim/bundle/NERDcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/bundle/dwm"]
+	path = vim/bundle/dwm
+	url = https://github.com/spolu/dwm.vim.git
+[submodule "vim/bundle/mojolicious"]
+	path = vim/bundle/mojolicious
+	url = https://github.com/yko/mojo.vim.git
