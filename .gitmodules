@@ -43,3 +43,6 @@
 [submodule "vim/bundle/snipMate"]
 	path = vim/bundle/snipMate
 	url = https://github.com/msanders/snipmate.vim.git
+[submodule "tmux/bundle/powerline"]
+	path = tmux/bundle/powerline
+	url = https://github.com/erikw/tmux-powerline.git
