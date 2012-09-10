@@ -30,7 +30,15 @@ ZSH_THEME="y2p"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx git ruby rvm perl python brew rails3 cpanm github vagrant taskwarrior)
+plugins=(git ruby rvm perl python cpanm vagrant)
+
+__git_files () { 
+    _wanted files expl 'local files' _files     
+}
+
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.dot-files/zsh/cache
 
 source $ZSH/oh-my-zsh.sh
 
