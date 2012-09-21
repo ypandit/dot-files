@@ -27,6 +27,8 @@
 	added = blue
 	changed = green
 	untracked = red
+[push]
+	default = current
 [diff]
 	tool = vimdiff
 [difftool]
