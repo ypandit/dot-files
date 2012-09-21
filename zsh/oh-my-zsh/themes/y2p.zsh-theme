@@ -7,12 +7,13 @@ local rvm_ruby='$fg[red]$(rvm_ruby_prompt)%{$reset_color%}'
 local pyb_prompt='$fg[green]$(pyb_info)%{$reset_color%}'
 local plb_prompt='$fg[blue]$(plb_info)%{$reset_color%}'
 local git_prompt='$(git_time_since_commit)$(git_info)'
+local go_prompt='$fg[yellow]$(gvm_info)%{$reset_color%}'
 
 local user='$fg[red]%n%{$reset_color%}'
 local host='$fg[blue]%m%{$reset_color%}'
 
 # The Prompt
-PROMPT="╭─ ${user} $fg_bold[white]@%{$reset_color%} ${host} $fg_bold[white]in%{$reset_color%} ${current_dir} ${git_prompt} ${plb_prompt}${pyb_prompt}${rvm_ruby}$reset_color
+PROMPT="╭─ ${user} $fg_bold[white]@%{$reset_color%} ${host} $fg_bold[white]in%{$reset_color%} ${current_dir} ${git_prompt} ${plb_prompt}${pyb_prompt}${rvm_ruby}${go_prompt}$reset_color
 ╰ λ "
 
 # Git coloring
@@ -43,6 +44,14 @@ function rvm_ruby_prompt {
     if [ -n "$RVM" ]; then
        echo "[$RVM]"
     fi
+}
+
+# Display Go-lang 
+function gvm_info() {
+	GVM=`gvm-prompt`
+	if [[ -n $GVM ]]; then
+		echo "[$GVM]"
+	fi
 }
 
 # Get pythonbrew info
