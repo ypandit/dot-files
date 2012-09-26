@@ -10,9 +10,6 @@
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule "vim/bundle/markdown"]
-	path = vim/bundle/markdown
-	url = https://github.com/tpope/vim-markdown.git
 [submodule "vim/bundle/python-mode"]
 	path = vim/bundle/python-mode
 	url = https://github.com/klen/python-mode.git
@@ -25,24 +22,12 @@
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar
-[submodule "vim/bundle/gitv"]
-	path = vim/bundle/gitv
-	url = https://github.com/gregsexton/gitv.git
-[submodule "vim/bundle/preview"]
-	path = vim/bundle/preview
-	url = https://github.com/greyblake/vim-preview.git
 [submodule "vim/bundle/NERDcommenter"]
 	path = vim/bundle/NERDcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/dwm"]
-	path = vim/bundle/dwm
-	url = https://github.com/spolu/dwm.vim.git
 [submodule "vim/bundle/mojolicious"]
 	path = vim/bundle/mojolicious
 	url = https://github.com/yko/mojo.vim.git
-[submodule "vim/bundle/snipMate"]
-	path = vim/bundle/snipMate
-	url = https://github.com/msanders/snipmate.vim.git
 [submodule "tmux/bundle/powerline"]
 	path = tmux/bundle/powerline
 	url = https://github.com/erikw/tmux-powerline.git

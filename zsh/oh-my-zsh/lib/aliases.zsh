@@ -1,7 +1,4 @@
 
-# Super user
-alias _='sudo'
-
 # Show history
 alias hist='fc -l 1'
 
@@ -16,12 +13,11 @@ alias dicty="cd ~/Projects/dictyBase"
 alias vm="cd ~/Documents/VMs"
 alias h="cd ~/"
 
-# Developer tools
+# Developer tools' aliases
 alias v="vim"
 alias q="exit"
 alias pyb="pythonbrew"
 alias plb="perlbrew"
-alias vl='vim -u /usr/share/vim/vim73/macros/less.vim'
 alias t='todo.sh -d ~/.dot-files/todo.txt/todo.cfg'
 
 # Bio tools
