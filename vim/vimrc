@@ -11,8 +11,7 @@ call pathogen#runtime_append_all_bundles()
 
 "if has("autocmd")
 " Enable file type detection
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 "endif
 
 set wildmenu " Better command-line completion
@@ -97,11 +96,11 @@ set showcmd
 nnoremap ; :
 
 " Solarized colorscheme for Vim
-" let g:solarized_termtrans = 1
-" let g:solarized_termcolors=256
-" set background=dark
-" colorscheme solarized
-colorscheme Tomorrow-Night
+let g:solarized_termtrans = 1
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+" colorscheme Tomorrow-Night
 
 " Show matching parenthesis
 set showmatch
@@ -125,9 +124,6 @@ set wrap " Wrap text
 " Use system clipboard
 set clipboard=unnamed
 
-" Preserve indentation while pasting text from the OS X clipboard
-noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
-
 " ---------------TagBar ---------------
 " Tagbar
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'	" Proper ctags locations
@@ -145,12 +141,15 @@ let g:pymode_folding = 0 "Disable python folding
 let g:pymode_lint_signs = 1 "Place error signs
 let g:pymode_virtualenv = 1 "Auto fix vim python paths if virtualenv enabled
 
+" --------------- Go-lang ---------------
+set rtp+=$GOROOT/misc/vim
+
 " --------------- Haskell ---------------
-au Bufenter *.hs compiler ghc " Use GHC functionality for Haskell files
+" au Bufenter *.hs compiler ghc " Use GHC functionality for Haskell files
 
 " Configure browser for haskell_doc.vim
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s %s"
+" let g:haddock_browser = "open"
+" let g:haddock_browser_callformat = "%s %s"
 
 " --------------- Startup items ---------------
 autocmd VimEnter * NERDTree
