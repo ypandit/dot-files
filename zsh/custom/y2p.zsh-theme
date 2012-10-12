@@ -35,7 +35,9 @@ function plb_info() {
     PERLBREW=`perlbrew list | grep '*' | cut -b3-`
     if [[ -n $PERLBREW ]]; then
         echo "[$PERLBREW]"
-    fi
+    else
+		echo ""
+	fi
 }
 
 # Display Ruby information, only when RVM is installed and only when you are using a RVM installed ruby.
@@ -43,6 +45,8 @@ function rvm_ruby_prompt {
     RVM=$(~/.rvm/bin/rvm-prompt)
     if [ -n "$RVM" ]; then
        echo "[$RVM]"
+	else
+		echo
     fi
 }
 
@@ -51,6 +55,8 @@ function gvm_info() {
 	GVM=`gvm-prompt`
 	if [[ -n $GVM ]]; then
 		echo "[$GVM]"
+	else
+		echo ""
 	fi
 }
 
@@ -59,7 +65,9 @@ function pyb_info() {
     PYTHONBREW=`pythonbrew list | grep '*' | sed 's/ (\*)//' | cut -b3-`
     if [[ -n $PYTHONBREW ]]; then
         echo "[$PYTHONBREW]"
-    fi
+    else
+		echo ""
+	fi
 }
 
 # Get git prompt information
