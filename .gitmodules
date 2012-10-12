@@ -16,9 +16,6 @@
 [submodule "vim/bundle/NERDtree"]
 	path = vim/bundle/NERDtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/Command-T"]
-	path = vim/bundle/Command-T
-	url = https://github.com/wincent/Command-T.git
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar
