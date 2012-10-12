@@ -2,6 +2,9 @@
 # System path
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11/bin
 
+# Editor
+export EDITOR=vim
+
 # Perl & Perlbrew
 export PATH=$PATH:$HOME/perl5/perlbrew/bin
 source ~/perl5/perlbrew/etc/bashrc
@@ -16,6 +19,9 @@ export PATH=$PATH:$HOME/.rvm/bin
 if 
 	[[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm"; 
 fi
+
+# SSH hosts' completing
+complete -o default -o nospace -W "$(/usr/bin/env ruby -ne 'puts $_.split(/[,\s]+/)[1..-1].reject{|host| host.match(/\*|\?/)} if $_.match(/^\s*Host\s+/);' < $HOME/.ssh/config)" scp sftp ssh
 
 # Java (JDK, JRE)
 export JAVA_HOME=
