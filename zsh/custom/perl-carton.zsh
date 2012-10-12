@@ -1,0 +1,2 @@
+
+alias ce="carton exec --"
