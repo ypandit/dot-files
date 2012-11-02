@@ -120,6 +120,7 @@ set noexrc "
 set shiftwidth=4
 
 set wrap " Wrap text
+set showbreak=↪  " Better line break display
 
 " Use system clipboard
 set clipboard=unnamed
