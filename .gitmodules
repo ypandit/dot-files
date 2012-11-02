@@ -37,3 +37,9 @@
 [submodule "vim/bundle/go-lang"]
 	path = vim/bundle/go-lang
 	url = https://github.com/jnwhiteh/vim-golang.git
+[submodule "vim/bundle/julia"]
+	path = vim/bundle/julia
+	url = git://github.com/JuliaLang/julia-vim.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
