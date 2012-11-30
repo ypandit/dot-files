@@ -12,6 +12,10 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
+[web]
+	browser = firefox
+[browser "firefox"]
+	cmd = open -a Firefox.app
 [color]
 	ui = auto
 [color "branch"]
@@ -33,3 +37,5 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+[status]
+	submodulesummary = true
