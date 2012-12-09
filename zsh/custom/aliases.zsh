@@ -20,6 +20,15 @@ alias pyb="pythonbrew"
 alias plb="perlbrew"
 alias t='todo.sh -d ~/.dot-files/todo.txt/todo.cfg'
 
+#alias julia-web="cd /usr/local/julia/usr/bin && ./launch-julia-webserver"
+
+alias start-dev="cd ~/Projects/VMs/dev-ubuntu && vagrant up && ssh dev-ubuntu"
+alias stop-dev="cd ~/Projects/VMs/dev-ubuntu && vagrant halt"
+
+# Internet Protocol Addresses
+alias localip='ipconfig getifaddr en1'
+alias ips="ifconfig -a | grep -o 'inet6\? \([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)' | sed -e 's/inet6* //'"
+
 # Bio tools
 alias maker='perl -I /usr/local/gmod/maker/lib /usr/local/gmod/maker/bin/maker'
 
@@ -29,7 +38,6 @@ alias untar="tar xzfv"
 # List files
 alias l="ls -Ga"
 alias ll="ls -la"
-
 # List directories
 alias dir='ls -l | grep "^d"'
 
@@ -47,6 +55,7 @@ alias remove_ds_store="find . -type f -name '*.DS_Store' -ls -delete; find . -ty
 alias fs="stat -f \"%z bytes\""
 
 # Show/hide hidden files in Finder
-alias show="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
-
+alias show='defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder'
+alias hide='defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder'
+alias animation-off='defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool NO'
+alias animation-on='defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool YES'
