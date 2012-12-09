@@ -46,3 +46,6 @@
 [submodule "vim/bundle/vim-perl"]
 	path = vim/bundle/vim-perl
 	url = git://github.com/vim-perl/vim-perl.git
+[submodule "dir_colors"]
+	path = dir_colors
+	url = git://github.com/seebi/dircolors-solarized.git
