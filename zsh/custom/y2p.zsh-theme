@@ -3,17 +3,17 @@
 local current_dir='$fg[yellow]%~%b%{$reset_color%}'
 
 # perl|ruby|python prompt info
-local rvm_ruby='$fg[red]$(rvm_ruby_prompt)%{$reset_color%}'
+# local rvm_ruby='$fg[red]$(rvm_ruby_prompt)%{$reset_color%}'
 local pyb_prompt='$fg[green]$(pyb_info)%{$reset_color%}'
 local plb_prompt='$fg[blue]$(plb_info)%{$reset_color%}'
 local git_prompt='$(git_time_since_commit)$(git_info)'
-local go_prompt='$fg[yellow]$(gvm_info)%{$reset_color%}'
+# local go_prompt='$fg[yellow]$(gvm_info)%{$reset_color%}'
 
 local user='$fg[red]%n%{$reset_color%}'
 local host='$fg[blue]%m%{$reset_color%}'
 
 # The Prompt
-PROMPT="╭─ ${user} $fg_bold[white]@%{$reset_color%} ${host} $fg_bold[white]in%{$reset_color%} ${current_dir} ${git_prompt} ${plb_prompt}${pyb_prompt}${rvm_ruby}${go_prompt}$reset_color
+PROMPT="╭─ ${user} $fg_bold[white]@%{$reset_color%} ${host} $fg_bold[white]in%{$reset_color%} ${current_dir} ${git_prompt} ${plb_prompt}${pyb_prompt}$reset_color
 ╰ $fg[white]⌘ %{$reset_color%} "
 
 # Git coloring
@@ -41,24 +41,24 @@ function plb_info() {
 }
 
 # Display Ruby information, only when RVM is installed and only when you are using a RVM installed ruby.
-function rvm_ruby_prompt {
-    RVM=$(~/.rvm/bin/rvm-prompt)
-    if [ -n "$RVM" ]; then
-       echo "[$RVM]"
-	else
-		echo
-    fi
-}
+# function rvm_ruby_prompt {
+#    RVM=$(~/.rvm/bin/rvm-prompt)
+#   if [ -n "$RVM" ]; then
+#       echo "[$RVM]"
+#	else
+#		echo
+#    fi
+#}
 
 # Display Go-lang 
-function gvm_info() {
-	GVM=`gvm-prompt`
-	if [[ -n $GVM ]]; then
-		echo "[$GVM]"
-	else
-		echo ""
-	fi
-}
+#function gvm_info() {
+#	GVM=`gvm-prompt`
+#	if [[ -n $GVM ]]; then
+#		echo "[$GVM]"
+#	else
+#		echo ""
+#	fi
+#}
 
 # Get pythonbrew info
 function pyb_info() {

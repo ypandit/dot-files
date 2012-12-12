@@ -37,8 +37,8 @@ set nobackup
 set nowritebackup
 
 " Backups and swapfiles
-set backupdir=~/.dot-files/vim/tmp
-set directory=~/.dot-files/vim/tmp
+" set backupdir=~/.dot-files/vim/tmp
+" set directory=~/.dot-files/vim/tmp
 
 " Enable line numbers
 set number
@@ -97,10 +97,9 @@ nnoremap ; :
 
 " Solarized colorscheme for Vim
 let g:solarized_termtrans = 1
-let g:solarized_termcolors=256
-set background=dark
+" let g:solarized_termcolors=256
 colorscheme solarized
-" colorscheme Tomorrow-Night
+set background=dark
 
 " Show matching parenthesis
 set showmatch
