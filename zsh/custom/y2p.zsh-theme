@@ -1,11 +1,10 @@
 
-#local current_dir='%{$terminfo[bold]$fg[blue]%} %~%{$reset_color%}'
 local current_dir='$fg[yellow]%~%b%{$reset_color%}'
 
-# perl|ruby|python prompt info
-local rvm_ruby='$fg[red]$(rvm_ruby_prompt)%{$reset_color%}'
-local pyb_prompt='$fg[green]$(pyb_info)%{$reset_color%}'
-local plb_prompt='$fg[blue]$(plb_info)%{$reset_color%}'
+# perl|ruby|python|git prompt info
+local rvm_ruby='$fg[red]$(rbenv_prompt_info)%{$reset_color%}'
+local pyb_prompt='$fg[green]$(pyenv_prompt_info)%{$reset_color%}'
+local plb_prompt='$fg[blue]$(plenv_prompt_info)%{$reset_color%}'
 local git_prompt='$(git_time_since_commit)$(git_info)'
 local go_prompt='$fg[yellow]$(gvm_info)%{$reset_color%}'
 
@@ -23,36 +22,38 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%} ✔%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ?%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[blue]%} ✚%{$reset_color%}"
-#ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹%{$reset_color%}"
-#ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖%{$reset_color%}"
-#ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜%{$reset_color%}"
-#ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═%{$reset_color%}"
-#ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭%{$reset_color%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT="%{$fg[magenta]%}"
 
-# Get perlbrew info
-function plb_info() {
-    PERLBREW=`perlbrew list | grep '*' | cut -b3-`
-    if [[ -n $PERLBREW ]]; then
-        echo "[$PERLBREW]"
-    else
-		echo ""
+# 
+function plenv_prompt_info() {
+  	local perl_version
+	if [ -f ".perl-version" ]; then
+    	perl_version=$(plenv version 2> /dev/null) || return
+		if [ -d "local" ]; then
+			echo "[pl-$perl_version" | sed 's/[ \t].*$/@local]/'
+		else
+			echo "[pl-$perl_version" | sed 's/[ \t].*$/]/'
+		fi
+	else
+		perl_version=""
 	fi
 }
 
-# Display Ruby information, only when RVM is installed and only when you are using a RVM installed ruby.
-function rvm_ruby_prompt {
-    RVM=$(~/.rvm/bin/rvm-prompt)
-    if [ -n "$RVM" ]; then
-       echo "[$RVM]"
+#
+function rbenv_prompt_info() {
+  	local ruby_version
+	local gemset
+	if [ -f ".ruby-version" ]; then
+   		ruby_version=$(rbenv version 2> /dev/null) || return
+		echo "[rb-$ruby_version" | sed 's/[ \t].*$/]/'
 	else
-		echo
-    fi
+		ruby_version=""
+	fi
 }
 
 # Display Go-lang 
 function gvm_info() {
-	GVM=`gvm-prompt`
+	GVM=$(gvm-prompt 2> /dev/null) || return
 	if [[ -n $GVM ]]; then
 		echo "[$GVM]"
 	else
@@ -60,13 +61,14 @@ function gvm_info() {
 	fi
 }
 
-# Get pythonbrew info
-function pyb_info() {
-    PYTHONBREW=`pythonbrew list | grep '*' | sed 's/ (\*)//' | cut -b3-`
-    if [[ -n $PYTHONBREW ]]; then
-        echo "[$PYTHONBREW]"
-    else
-		echo ""
+# pyenv info, if .python-version file exists
+function pyenv_prompt_info() {
+  	local py_version
+	if [ -f ".python-version" ]; then
+    	py_version=$(pyenv version 2> /dev/null) || return
+		echo "[py-$py_version" | sed 's/[ \t].*$/]/'
+	else 
+		py_version=""
 	fi
 }
 
