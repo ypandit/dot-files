@@ -18,3 +18,11 @@ blib/
 *.bak
 *.swn
 *.swo
+
+# pyenv, rbenv & plenv
+.python-version
+.perl-version
+.ruby-version
+.rbenv-gemsets
+.carton/
+local/

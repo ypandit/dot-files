@@ -9,6 +9,7 @@
   	ch = checkout
   	df = diff
 	lg = log --graph --pretty=format:'%C(green)%h%Creset %C(yellow)%d%Creset | %C(blue)%an%Creset | %C(red)%ar%Creset | %C(cyan)%s%Creset' 
+	grep = grep --break --heading --line-number
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
@@ -39,3 +40,5 @@
 	prompt = false
 [status]
 	submodulesummary = true
+[grep]
+	lineNumber = true
