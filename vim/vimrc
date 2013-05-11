@@ -1,106 +1,91 @@
-"
-set nocompatible
- 
-let mapleader = "," "
 
-" Setting file type detection off before calling pathogen()
+set nocompatible
 filetype off
 
-" Loading the pathogen package
-call pathogen#runtime_append_all_bundles()
+" Vundle for plugin management 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-"if has("autocmd")
-" Enable file type detection
-filetype plugin indent on
-"endif
+Bundle 'kien/ctrlp.vim'
+" Bundle 'amirh/HTML-AutoCloseTag'
+" Bundle 'JuliaLang/julia-vim'
+" Bundle 'yko/mojo.vim' 
+Bundle 'Shougo/neocomplcache'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle "myusuf3/numbers.vim"
+" Bundle 'c9s/perlomni.vim'
+Bundle 'vim-scripts/perl-support.vim'
+" Bundle 'klen/python-mode'
+Bundle 'scrooloose/syntastic'
+Bundle 'godlygeek/tabular'
+Bundle 'majutsushi/tagbar'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+" Bundle 'jnwhiteh/vim-golang'
+" Bundle 'pangloss/vim-javascript'
+Bundle 'tpope/vim-markdown'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'tpope/vim-rails'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-surround'
+Bundle 'gmarik/vundle'
+" Bundle 'Valloric/YouCompleteMe'
 
-set wildmenu " Better command-line completion
+let mapleader = "," "
+nnoremap ; :
 
-" Allow cursor keys in insert mode
-" set noesckeys
 
-set ttyfast " Optimize for fast terminal connections
+filetype plugin indent on " Filetype detection and indentation is on
+syntax on                 " Enable syntax highlighting
+syntax enable             "
+set mouse=a               " Enable mouse in all modes
 
-set gdefault " Add the g flag to search/replace by default
-
-" Use UTF-8 without BOM
-set encoding=utf-8 
-set nobomb
-
-set binary " No empty newlines at the end of files
-
+set wildmenu                   " Better command-line completion
+set ttyfast                    " Optimize for fast terminal connections
+set gdefault                   " Add the g flag to search/replace by default
+set encoding=utf-8             "
+set binary                     " No empty newlines at the end of files
 set backspace=indent,eol,start " Enable backspace in VIm
-
-" Don't make a backup before overwriting a file.
-set noswapfile
-set nobackup
-set nowritebackup
+set noswapfile                 "
+set nobackup                   "
+set nowritebackup              "
 
 " Backups and swapfiles
 set backupdir=~/.dot-files/vim/tmp
 set directory=~/.dot-files/vim/tmp
 
-" Enable line numbers
-set number
+" Visual
+set number         " Enable line numbers
+set cursorline     " Highlight current line
+set laststatus=2   " Always show status line
+set tabstop=4      " Make tabs as wide as four spaces
+set nobomb         "
+" set noerrorbells   " Disable error bells
+set visualbell     " Enable visual bell
+set nostartofline  " Don’t reset cursor to start of line when moving around.
+set ruler          " Show the cursor position
+set showmode       " Show the current mode
+set title          " Show the filename in the window titlebar
+set showcmd        " Show the (partial) command as it’s being typed
 
-" Enable syntax highlighting
-syntax on
-syntax enable
+" Searching
+set hlsearch   " Highlight searches
+set ignorecase " Ignore case of searches
+set incsearch  " Highlight dynamically as pattern is typed
 
-" Highlight current line
-set cursorline
-
-" Make tabs as wide as two spaces
-set tabstop=4
-
-" Highlight searches
-set hlsearch
-
-" Ignore case of searches
-set ignorecase
-
-" Highlight dynamically as pattern is typed
-set incsearch
-
-" Always show status line
-set laststatus=2
-
-" Enable mouse in all modes
-set mouse=a
-
-" Disable error bells
-"set noerrorbells
-
-" Enable visual bell
-set visualbell
-
-" Set fillchars
-" set fillchars+=stl:\ ,stlnc:\
-
-" Don’t reset cursor to start of line when moving around.
-set nostartofline
-
-" Show the cursor position
-set ruler
-
-" Show the current mode
-set showmode
-
-" Show the filename in the window titlebar
-set title
-
-" Show the (partial) command as it’s being typed
-set showcmd
-
-"
-nnoremap ; :
+" Code folding
+set foldmethod=indent " Fold based on indent
+set foldnestmax=10    " Deepest fold is 10 levels
+set nofoldenable      " Don't fold by default
+set foldlevel=1         
 
 " Solarized colorscheme for Vim
-let g:solarized_termtrans = 1
-let g:solarized_termcolors=256
+let g:solarized_termtrans  = 1
+let g:solarized_termcolors = 16
 set background=dark
 colorscheme solarized
-" colorscheme Tomorrow-Night
 
 " Show matching parenthesis
 set showmatch
@@ -119,28 +104,43 @@ set noexrc "
 " Number of spaces to use for autoindenting
 set shiftwidth=4
 
-set wrap " Wrap text
-set showbreak=↪  " Better line break display
+set wrap        " Wrap text
+set showbreak=↪ " Better line break display
 
 " Use system clipboard
 set clipboard=unnamed
 
+au BufNewFile,BufRead *.psgi set filetype=perl
+au BufNewFile,BufRead cpanfile set filetype=conf
+
+let g:LargeFile=50 " Load files upto 50mb without creating *.swp
+
+" --------------- ctrlp ---------------
+let g:ctrlp_custom_ignore       = '\v[\/](local|nytprof)$' " Ignore local folder from ctrlp
+let g:ctrlp_by_filename         = 1                        " Search by filename
+let g:ctrlp_match_window_bottom = 1                        " Display window at the top
+let g:ctrlp_open_new_file       = 't'                      " Open new file in a tab
+
+" --------------- neocomplcache ---------------
+let g:neocomplcache_enable_at_startup = 1            " Enable at startup
+let g:neocomplcache_enable_smart_case = 1            " Use smartcase.
+let g:neocomplcache_enable_camel_case_completion = 1 " Use cameL case completion.
+let g:neocomplcache_min_syntax_length = 3            " Sets minimum char length of syntax keyword.
+
+" --------------- Javascript ---------------
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1  = "inc"
+
 " ---------------TagBar ---------------
-" Tagbar
-let g:tagbar_ctags_bin='/usr/local/bin/ctags'	" Proper ctags locations
-let g:tagbar_width=35	" Width of the tagbar pane
+let g:tagbar_ctags_bin = '/usr/local/bin/ctags' " Proper ctags locations
+let g:tagbar_width     = 35                     " Width of the tagbar pane
 
 " --------------- PowerLine ---------------
-" Powerline symbols
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_stl_path_style = 'short'
-call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
-
-" --------------- Python ---------------
-" python-mode
-let g:pymode_folding = 0 "Disable python folding
-let g:pymode_lint_signs = 1 "Place error signs
-let g:pymode_virtualenv = 1 "Auto fix vim python paths if virtualenv enabled
+let g:Powerline_symbols_override = {
+	\ 'BRANCH': [0x2213], 
+	\ }
+let g:Powerline_symbols          = 'fancy'
 
 " --------------- Go-lang ---------------
 set rtp+=$GOROOT/misc/vim
@@ -149,7 +149,7 @@ set rtp+=$GOROOT/misc/vim
 au Bufenter *.hs compiler ghc " Use GHC functionality for Haskell files
 
 " Configure browser for haskell_doc.vim
-let g:haddock_browser = "open"
+let g:haddock_browser            = "open"
 let g:haddock_browser_callformat = "%s %s"
 
 " --------------- Startup items ---------------
@@ -157,3 +157,4 @@ autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
 
 autocmd VimEnter * wincmd w
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
