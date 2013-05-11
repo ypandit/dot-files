@@ -5,35 +5,39 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/X1
 # Editor
 export EDITOR=vim
 
-# Perl & Perlbrew
-export PATH=$PATH:$HOME/perl5/perlbrew/bin
-source ~/perl5/perlbrew/etc/bashrc
+# Perl with plenv
+export PATH="$HOME/.plenv/bin:$PATH"
+eval "$(plenv init -)"
 
-# Python & Pythonbrew
-export PATH=$PATH:$HOME/.pythonbrew/bin
-[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
+# Python with pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
 
-# Ruby & RVM
-export PATH=$PATH:$HOME/.rvm/bin
-# Load rvm as a function
-if 
-	[[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm"; 
-fi
+# Ruby with rbenv
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
+
+# SmartCD
+[ -r "$HOME/.smartcd_config" ] && ( [ -n $BASH_VERSION ] || [ -n $ZSH_VERSION ] ) && source ~/.smartcd_config
 
 # SSH hosts' completing
 complete -o default -o nospace -W "$(/usr/bin/env ruby -ne 'puts $_.split(/[,\s]+/)[1..-1].reject{|host| host.match(/\*|\?/)} if $_.match(/^\s*Host\s+/);' < $HOME/.ssh/config)" scp sftp ssh
 
 # Java (JDK, JRE)
-export JAVA_HOME=
-
-# Node.js
-export NODE_PATH=
+export JAVA_HOME="$(/usr/libexec/java_home)"
 
 # Go & GVM
 source $HOME/.gvm/scripts/gvm
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
+# Oracle
+export ORACLE_HOME=<path to instant client>
+export DYLD_LIBRARY_PATH=$DYLD_PATH_LIBRARY:$ORACLE_HOME
+export PATH=$PATH:$DYLD_PATH_LIBRARY
+
 # Amazon AWS EC2
-export EC2_HOME=
+export EC2_HOME=/usr/local/Library/LinkedKegs/ec2-api-tools/jars
 export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)"
 export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
+export AWS_ACCESS_KEY=
+export AWS_SECRET_KEY=
