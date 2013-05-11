@@ -1,0 +1,13 @@
+
+tmp/
+
+# Vim
+.netrwhist
+.VimballRecord
+vim/bundle/
+!vim/bundle/vundle/
+
+#
+profile
+
+
