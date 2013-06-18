@@ -26,3 +26,7 @@ blib/
 .rbenv-gemsets
 .carton/
 local/
+
+# IntelliJ files/folders
+.idea/
+*.iml
