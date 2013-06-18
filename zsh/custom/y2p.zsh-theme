@@ -12,7 +12,7 @@ local user='$fg[red]%n%{$reset_color%}'
 local host='$fg[blue]%m%{$reset_color%}'
 
 # The Prompt
-PROMPT="╭─ ${user} $fg_bold[white]@%{$reset_color%} ${host} $fg_bold[white]in%{$reset_color%} ${current_dir} ${git_prompt} ${plb_prompt}${pyb_prompt}$reset_color
+PROMPT="╭─ ${user} $fg_bold[white]@%{$reset_color%} ${host} $fg_bold[white]in%{$reset_color%} ${current_dir} ${git_prompt} ${plb_prompt}${pyb_prompt}${rvm_ruby}$reset_color
 ╰ $fg[white]⌘ %{$reset_color%} "
 
 # Git coloring
