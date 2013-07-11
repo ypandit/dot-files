@@ -5,6 +5,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
 " Bundle 'amirh/HTML-AutoCloseTag'
 " Bundle 'JuliaLang/julia-vim'
@@ -13,9 +14,7 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle "myusuf3/numbers.vim"
-" Bundle 'c9s/perlomni.vim'
 Bundle 'vim-scripts/perl-support.vim'
-" Bundle 'klen/python-mode'
 Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
@@ -27,7 +26,6 @@ Bundle 'airblade/vim-gitgutter'
 " Bundle 'jnwhiteh/vim-golang'
 " Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-markdown'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-surround'
@@ -108,6 +106,9 @@ au BufNewFile,BufRead cpanfile set syntax=perl.cpanfile
 
 let g:LargeFile=50 " Load files upto 50mb without creating *.swp
 
+" --------------- GitGutter ---------------
+let g:gitgutter_highlight_lines = 1
+
 " --------------- ctrlp ---------------
 let g:ctrlp_custom_ignore       = '\v[\/](local|nytprof)$' " Ignore local folder from ctrlp
 let g:ctrlp_by_filename         = 1                        " Search by filename
@@ -132,11 +133,15 @@ let g:html_indent_style1  = "inc"
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags' " Proper ctags locations
 let g:tagbar_width     = 35                     " Width of the tagbar pane
 
-" --------------- PowerLine ---------------
-let g:Powerline_symbols_override = {
-	\ 'BRANCH': [0x2213], 
-	\ }
-let g:Powerline_symbols          = 'fancy'
+" --------------- Airline ---------------
+" let g:airline_left_sep = '▶'
+let g:airline_left_sep = ''
+" let g:airline_right_sep = '◀'
+let g:airline_right_sep = ''
+let g:airline_linecolumn_prefix = '␊ '
+let g:airline_fugitive_prefix = '⎇ '
+let g:airline_paste_symbol = 'ρ'
+" let g:airline_theme='solarized2'
 
 " --------------- Go-lang ---------------
 set rtp+=$GOROOT/misc/vim
