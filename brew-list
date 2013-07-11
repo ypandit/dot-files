@@ -1,6 +1,8 @@
 ack
 autoconf
+autoenv
 automake
+boost
 brew-gem
 brew-pip
 clojure
@@ -20,8 +22,11 @@ gfortran
 ghc
 git
 git-extras
+glew
+glm
 gmp
 go
+gource
 groff
 htop-osx
 imagemagick
@@ -32,11 +37,13 @@ lesstif
 libevent
 libmpc
 libpng
+libssh2
 libtiff
 libtool
 little-cms2
 mercurial
 mpfr
+mysql
 openjpeg
 ossp-uuid
 pcre
@@ -56,6 +63,8 @@ rmtrash
 ruby-build
 sbt
 scala
+sdl
+sdl_image
 sl
 sqlite
 ssh-copy-id
@@ -65,8 +74,10 @@ tmux
 tree
 ttyrec
 vim
+vnstat
 x264
 xpdf
 xvid
 yasm
+zeromq
 zsh
