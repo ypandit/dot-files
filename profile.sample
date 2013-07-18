@@ -17,6 +17,9 @@ eval "$(pyenv init -)"
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
+# AutoENV
+source /usr/local/opt/autoenv/activate.sh
+
 # SmartCD
 [ -r "$HOME/.smartcd_config" ] && ( [ -n $BASH_VERSION ] || [ -n $ZSH_VERSION ] ) && source ~/.smartcd_config
 

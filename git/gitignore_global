@@ -1,4 +1,6 @@
 
+.env
+
 # OSX crap
 .DS_Store
 
