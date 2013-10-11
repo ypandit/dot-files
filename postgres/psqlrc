@@ -1,0 +1,15 @@
+
+\echo '\nWelcome! Your data has been resting fine...\n'
+
+\set PROMPT1 '%[%033[0;36;29m%]%n@%m:%/%[%033[0m%]% ~ '
+\set PROMPT2 ''
+\set CLEAR '\\! clear;'
+
+\pset null 'NULL'
+\pset format wrapped
+\pset border 2
+\encoding unicode
+
+\timing
+\x auto
+
