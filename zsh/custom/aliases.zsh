@@ -7,11 +7,11 @@ alias ..="cd .."
 alias c="cd"
 
 # Folder shortcuts
-alias db="cd ~/Documents/Dropbox"
-alias pj="cd ~/Projects"
-alias dicty="cd ~/Projects/dictyBase"
-alias vm="cd ~/Projects/VMs"
-alias h="cd ~/"
+alias db="cd $HOME/Documents/Dropbox"
+alias pj="cd $HOME/Projects"
+alias dicty="cd $HOME/Projects/work/dictybase"
+alias vm="cd $HOME/Projects/vm"
+alias h="cd $HOME"
 
 # Developer tools' aliases
 alias v="vim"
