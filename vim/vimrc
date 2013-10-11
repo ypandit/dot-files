@@ -5,36 +5,43 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'bling/vim-airline'
+Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'amirh/HTML-AutoCloseTag'
 " Bundle 'JuliaLang/julia-vim'
 " Bundle 'yko/mojo.vim' 
-Bundle 'Shougo/neocomplcache'
+" Bundle 'mtth/locate.vim'
+" Bundle 'lsdr/monokai'
+Bundle 'tomasr/molokai'
+" Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplete.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle "myusuf3/numbers.vim"
+Bundle 'myusuf3/numbers.vim'
 Bundle 'vim-scripts/perl-support.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'bling/vim-airline'
+" Bundle 'bling/vim-bufferline'
 Bundle 'vim-scripts/VimClojure'
-Bundle 'altercation/vim-colors-solarized'
+" Bundle 'altercation/vim-colors-solarized'
 Bundle 'moznion/vim-cpanfile'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
-" Bundle 'jnwhiteh/vim-golang'
+Bundle 'jnwhiteh/vim-golang'
 " Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-rails'
-Bundle 'vim-ruby/vim-ruby'
+Bundle 'terryma/vim-multiple-cursors'
+" Bundle 'tpope/vim-rails'
+" Bundle 'vim-ruby/vim-ruby'
+Bundle 'mhinz/vim-startify'
 Bundle 'tpope/vim-surround'
 Bundle 'gmarik/vundle'
-" Bundle 'Valloric/YouCompleteMe'
 
 let mapleader = "," "
 nnoremap ; :
-
 
 filetype plugin indent on " Filetype detection and indentation is on
 syntax on                 " Enable syntax highlighting
@@ -47,13 +54,13 @@ set gdefault                   " Add the g flag to search/replace by default
 set encoding=utf-8             "
 set binary                     " No empty newlines at the end of files
 set backspace=indent,eol,start " Enable backspace in VIm
-" set noswapfile                 "
+set noswapfile                 "
 set nobackup                   "
 set nowritebackup              "
 
 " Backups and swapfiles
-set backupdir=~/.dot-files/vim/tmp
-set directory=~/.dot-files/vim/tmp
+set backupdir=$HOME/.vim/tmp
+set directory=$HOME/.vim/tmp
 
 " Visual
 set number         " Enable line numbers
@@ -80,11 +87,14 @@ set foldnestmax=10    " Deepest fold is 10 levels
 set nofoldenable      " Don't fold by default
 set foldlevel=1         
 
-" Solarized colorscheme for Vim
-let g:solarized_termtrans  = 1
-let g:solarized_termcolors = 16
+" Colorscheme for Vim
+" let g:solarized_termtrans  = 1
+" let g:solarized_termcolors = 16
 set background=dark
-colorscheme solarized
+" colorscheme solarized
+colorscheme molokai 
+let g:molokai_original = 1
+let g:rehash256 = 1
 
 set showmatch
 set autoindent
@@ -99,49 +109,70 @@ set showbreak=↪ " Better line break display
 " Use system clipboard
 set clipboard=unnamed
 
+autocmd FileType gitcommit setlocal spell " Spellcheck in git-commit
+
 au BufNewFile,BufRead *.psgi set filetype=perl
-" au BufNewFile,BufRead cpanfile set filetype=conf
 au BufNewFile,BufRead cpanfile set filetype=cpanfile
 au BufNewFile,BufRead cpanfile set syntax=perl.cpanfile
 
-let g:LargeFile=50 " Load files upto 50mb without creating *.swp
+let g:LargeFile=100 " Load files upto 50mb without creating *.swp
 
-" --------------- GitGutter ---------------
-let g:gitgutter_highlight_lines = 1
+" --------------- syntastic ---------------
+let g:syntastic_python_flake8_args = '--ignore=W191,E501,E121,E122,E123,E128'
 
-" --------------- ctrlp ---------------
-let g:ctrlp_custom_ignore       = '\v[\/](local|nytprof)$' " Ignore local folder from ctrlp
-let g:ctrlp_by_filename         = 1                        " Search by filename
-let g:ctrlp_match_window_bottom = 1                        " Display window at the top
-let g:ctrlp_open_new_file       = 't'                      " Open new file in a tab
+ " --------------- ctrlp ---------------
+let g:ctrlp_custom_ignore       = '\v[\/](local|nytprof|blib)$' " Ignore local folder from ctrlp
+let g:ctrlp_by_filename         = 0                             " Search by filename
+let g:ctrlp_match_window_bottom = 1                             " Display window at the top
+let g:ctrlp_open_new_file       = 't'                           " Open new file in a tab
 
 " --------------- neocomplcache ---------------
-let g:neocomplcache_enable_at_startup = 1            " Enable at startup
-let g:neocomplcache_enable_smart_case = 1            " Use smartcase.
-let g:neocomplcache_enable_camel_case_completion = 1 " Use cameL case completion.
-let g:neocomplcache_min_syntax_length = 3            " Sets minimum char length of syntax keyword.
-let g:neocomplcache_dictionary_filetype_lists = {
-  	\ 'cpanfile' : $HOME . '/.vim/bundle/vim-cpanfile/dict/cpanfile.dict'
-  	\ }
+" let g:neocomplcache_enable_at_startup = 1            " Enable at startup
+" let g:neocomplcache_enable_smart_case = 1            " Use smartcase.
+" let g:neocomplcache_enable_camel_case_completion = 1 " Use cameL case completion.
+" let g:neocomplcache_min_syntax_length = 3            " Sets minimum char length of syntax keyword.
+" let g:neocomplcache_dictionary_filetype_lists = {
+"   	\ 'cpanfile' : $HOME . '/.vim/bundle/vim-cpanfile/dict/cpanfile.dict'
+"   	\ }
 
-" --------------- Javascript ---------------
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1  = "inc"
+" --------------- neocomplete ---------------
+let g:acp_enableAtStartup                           = 1
+let g:neocomplete#enable_at_startup                 = 1
+let g:neocomplete#enable_smart_case                 = 1 " Use smartcase.
+let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+
+" --------------- startify ---------------
+let g:startify_custom_header =
+	\ map(split(system('cowsay'), '\n'), '"   ". v:val') + ['','']
 
 " ---------------TagBar ---------------
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags' " Proper ctags locations
 let g:tagbar_width     = 35                     " Width of the tagbar pane
 
 " --------------- Airline ---------------
-" let g:airline_left_sep = '▶'
-let g:airline_left_sep = ''
-" let g:airline_right_sep = '◀'
-let g:airline_right_sep = ''
-let g:airline_linecolumn_prefix = '␊ '
-let g:airline_fugitive_prefix = '⎇ '
-let g:airline_paste_symbol = 'ρ'
-" let g:airline_theme='solarized2'
+let g:airline_theme             = 'murmur'
+let g:airline_left_sep          = '⮀'
+let g:airline_right_sep         = '⮂'
+let g:airline_branch_prefix     = '⭠'
+let g:airline_readonly_symbol   = '⭤'
+let g:airline_linecolumn_prefix = '⭡'
+
+" --------------- NERDTree ---------------
+let NERDTreeIgnore    = ['\.pyc$'] " Ignore these files in NERDTree
+let g:NERDTreeWinSize = 40
+map <C-t> :NERDTreeToggle<CR>
+
+" --------------- Startup items ---------------
+" autocmd VimEnter * NERDTree
+" autocmd BufEnter * NERDTreeMirror
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" --------------- Javascript ---------------
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1  = "inc"
 
 " --------------- Go-lang ---------------
 set rtp+=$GOROOT/misc/vim
@@ -152,14 +183,6 @@ let g:haddock_browser            = "open"
 au Bufenter *.hs compiler ghc 					" Use GHC functionality for Haskell files
 let g:haddock_browser = "open"					" Configure browser for haskell_doc.vim
 let g:haddock_browser_callformat = "%s %s"
-
-" --------------- NERDTree ---------------
-let NERDTreeIgnore    = ['\.pyc$'] " Ignore these files in NERDTree
-let g:NERDTreeWinSize = 40
-
-" --------------- Startup items ---------------
-autocmd VimEnter * NERDTree
-autocmd BufEnter * NERDTreeMirror
 
 " --------------- Exit items ---------------
 autocmd VimEnter * wincmd w
