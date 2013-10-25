@@ -23,18 +23,18 @@ DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(brew git tmux perl cpanm rails bundle pip git-extras zsh-syntax-highlighting zsh-syntax-highlighting-filetypes zsh-history-substring-search)
+plugins=(brew git perl cpanm osx git-extras postgres zsh-syntax-highlighting zsh-syntax-highlighting-filetypes zsh-history-substring-search golang pip vagrant)
 
-unsetopt correctall
+# unsetopt correctall
 
-__git_files () { 
-    _wanted files expl 'local files' _files     
-}
-
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.dot-files/zsh/cache
-fpath=(/usr/local/share/zsh-completions $fpath)
+# __git_files () { 
+#     _wanted files expl 'local files' _files     
+# }
+# 
+# zstyle ':completion:*' accept-exact '*(N)'
+# zstyle ':completion:*' use-cache on
+# zstyle ':completion:*' cache-path ~/.dot-files/zsh/cache
+# fpath=(/usr/local/share/zsh-completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
 

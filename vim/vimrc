@@ -23,6 +23,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
 Bundle 'tomtom/tcomment_vim'
+Bundle "tomtom/tlib_vim"
+Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle 'bling/vim-airline'
 " Bundle 'bling/vim-bufferline'
 Bundle 'vim-scripts/VimClojure'
@@ -36,6 +38,8 @@ Bundle 'tpope/vim-markdown'
 Bundle 'terryma/vim-multiple-cursors'
 " Bundle 'tpope/vim-rails'
 " Bundle 'vim-ruby/vim-ruby'
+Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
 Bundle 'mhinz/vim-startify'
 Bundle 'tpope/vim-surround'
 Bundle 'gmarik/vundle'
@@ -136,11 +140,21 @@ let g:ctrlp_open_new_file       = 't'                           " Open new file 
 "   	\ }
 
 " --------------- neocomplete ---------------
-let g:acp_enableAtStartup                           = 1
+let g:acp_enableAtStartup                           = 0
 let g:neocomplete#enable_at_startup                 = 1
 let g:neocomplete#enable_smart_case                 = 1 " Use smartcase.
 let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : ''
+    \ }
+
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " --------------- startify ---------------
 let g:startify_custom_header =
