@@ -16,6 +16,7 @@ alias h="cd $HOME"
 # Developer tools' aliases
 alias v="vim"
 alias q="exit"
+alias t="todo.sh -d $HOME/.todo.cfg"
 
 # Internet Protocol Addresses
 alias localip='ipconfig getifaddr en1'
