@@ -10,7 +10,7 @@ ZSH_THEME="y2p"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -23,18 +23,22 @@ DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(brew git perl cpanm osx git-extras postgres zsh-syntax-highlighting zsh-syntax-highlighting-filetypes zsh-history-substring-search golang pip vagrant)
+plugins=(brew git osx git-extras mysql zsh-syntax-highlighting zsh-syntax-highlighting-filetypes zsh-history-substring-search golang pip rbenv pyenv virtualenv-prompt cabal battery gitignore)
 
-# unsetopt correctall
+unsetopt correctall
 
 # __git_files () { 
 #     _wanted files expl 'local files' _files     
 # }
-# 
-# zstyle ':completion:*' accept-exact '*(N)'
+
+zstyle ':completion:*' accept-exact '*(N)'
 # zstyle ':completion:*' use-cache on
 # zstyle ':completion:*' cache-path ~/.dot-files/zsh/cache
 # fpath=(/usr/local/share/zsh-completions $fpath)
+
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/helpfiles
 
 source $ZSH/oh-my-zsh.sh
 

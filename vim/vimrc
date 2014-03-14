@@ -1,24 +1,29 @@
 set nocompatible
 filetype off
+" let &t_Co=256
 
 " Vundle for plugin management 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'mileszs/ack.vim'
+" Bundle 'itchyny/calendar.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'davidhalter/jedi-vim'
 Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'amirh/HTML-AutoCloseTag'
 " Bundle 'JuliaLang/julia-vim'
 " Bundle 'yko/mojo.vim' 
 " Bundle 'mtth/locate.vim'
 " Bundle 'lsdr/monokai'
-Bundle 'tomasr/molokai'
+" Bundle 'tomasr/molokai'
 " Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neocomplete.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'myusuf3/numbers.vim'
-Bundle 'vim-scripts/perl-support.vim'
+" Bundle 'vim-scripts/perl-support.vim'
+" Bundle 'reedes/vim-colors-pencil'
+Bundle "ervandew/supertab"
 Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
@@ -27,13 +32,16 @@ Bundle "tomtom/tlib_vim"
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle 'bling/vim-airline'
 " Bundle 'bling/vim-bufferline'
-Bundle 'vim-scripts/VimClojure'
-" Bundle 'altercation/vim-colors-solarized'
-Bundle 'moznion/vim-cpanfile'
+" Bundle 'vim-scripts/VimClojure'
+Bundle 'altercation/vim-colors-solarized'
+" Bundle 'moznion/vim-cpanfile'
+Bundle 'nvie/vim-flake8'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'jnwhiteh/vim-golang'
+" Bundle 'jnwhiteh/vim-golang'
 " Bundle 'pangloss/vim-javascript'
+" Bundle 'reedes/vim-litecorrect'
+Bundle 'reedes/vim-lexical'
 Bundle 'tpope/vim-markdown'
 Bundle 'terryma/vim-multiple-cursors'
 " Bundle 'tpope/vim-rails'
@@ -92,12 +100,12 @@ set nofoldenable      " Don't fold by default
 set foldlevel=1         
 
 " Colorscheme for Vim
-" let g:solarized_termtrans  = 1
-" let g:solarized_termcolors = 16
+let g:solarized_termtrans  = 1
+let g:solarized_termcolors = 16
 set background=dark
-" colorscheme solarized
-colorscheme molokai 
-let g:molokai_original = 1
+colorscheme solarized
+" colorscheme molokai 
+" let g:molokai_original = 1
 let g:rehash256 = 1
 
 set showmatch
@@ -106,6 +114,7 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set smarttab
 set noexrc 
 set shiftwidth=4
+set expandtab
 
 set wrap        " Wrap text
 set showbreak=↪ " Better line break display
@@ -113,19 +122,23 @@ set showbreak=↪ " Better line break display
 " Use system clipboard
 set clipboard=unnamed
 
-autocmd FileType gitcommit setlocal spell " Spellcheck in git-commit
+" autocmd FileType gitcommit setlocal spell " Spellcheck in git-commit
 
-au BufNewFile,BufRead *.psgi set filetype=perl
-au BufNewFile,BufRead cpanfile set filetype=cpanfile
-au BufNewFile,BufRead cpanfile set syntax=perl.cpanfile
+" au BufNewFile,BufRead *.psgi set filetype=perl
+" au BufNewFile,BufRead cpanfile set filetype=cpanfile
+" au BufNewFile,BufRead cpanfile set syntax=perl.cpanfile
+
+au BufNewFile,BufRead *.nxml set filetype=xml
 
 let g:LargeFile=100 " Load files upto 50mb without creating *.swp
 
 " --------------- syntastic ---------------
-let g:syntastic_python_flake8_args = '--ignore=W191,E501,E121,E122,E123,E128'
+let g:syntastic_python_checkers     = ['flake8']
+" let g:syntastic_python_flake8_args  = '--ignore  = W191,E501,E121,E122,E123,E128'
+let g:syntastic_enable_highlighting = 1
 
- " --------------- ctrlp ---------------
-let g:ctrlp_custom_ignore       = '\v[\/](local|nytprof|blib)$' " Ignore local folder from ctrlp
+" --------------- ctrlp ---------------
+" let g:ctrlp_custom_ignore       = '\v[\/](local|nytprof|blib)$' " Ignore local folder from ctrlp
 let g:ctrlp_by_filename         = 0                             " Search by filename
 let g:ctrlp_match_window_bottom = 1                             " Display window at the top
 let g:ctrlp_open_new_file       = 't'                           " Open new file in a tab
@@ -145,9 +158,9 @@ let g:neocomplete#enable_at_startup                 = 1
 let g:neocomplete#enable_smart_case                 = 1 " Use smartcase.
 let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
 
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : ''
-    \ }
+" let g:neocomplete#sources#dictionary#dictionaries = {
+"     \ 'default' : ''
+"     \ }
 
 if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
@@ -157,8 +170,9 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " --------------- startify ---------------
-let g:startify_custom_header =
-	\ map(split(system('cowsay'), '\n'), '"   ". v:val') + ['','']
+" let g:startify_custom_header =
+" 	\ map(split(system('cowsay'), '\n'), '"   ". v:val') + ['','']
+let g:startify_skiplist = ['\.DS_Store', '\.env', '\.python-version', '\.ruby-version'] " Skip these files
 
 " ---------------TagBar ---------------
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags' " Proper ctags locations
@@ -171,6 +185,9 @@ let g:airline_right_sep         = '⮂'
 let g:airline_branch_prefix     = '⭠'
 let g:airline_readonly_symbol   = '⭤'
 let g:airline_linecolumn_prefix = '⭡'
+let g:airline#extensions#tagbar#flags = 's'
+let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline#extensions#virtualenv#enabled = 1
 
 " --------------- NERDTree ---------------
 let NERDTreeIgnore    = ['\.pyc$'] " Ignore these files in NERDTree
@@ -181,7 +198,14 @@ map <C-t> :NERDTreeToggle<CR>
 " autocmd VimEnter * NERDTree
 " autocmd BufEnter * NERDTreeMirror
 
+" --------------- Calender ---------------
+" let g:calendar_google_calendar = 1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" --------------- Python ---------------
+let g:jedi#popup_select_first = 1
+" autocmd FileType python setlocal completeopt-=preview
 
 " --------------- Javascript ---------------
 let g:html_indent_inctags = "html,body,head,tbody"

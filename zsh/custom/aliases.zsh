@@ -2,6 +2,8 @@
 # Show history
 alias hist='fc -l 1'
 
+export LSCOLORS="gxfxcxdxbxegedabagacad"
+
 # Navigation
 alias ..="cd .."
 alias c="cd"
@@ -10,6 +12,7 @@ alias c="cd"
 alias db="cd $HOME/Documents/Dropbox"
 alias pj="cd $HOME/Projects"
 alias dicty="cd $HOME/Projects/work/dictybase"
+alias sciex="cd $HOME/Projects/work/science_exchange"
 alias vm="cd $HOME/Projects/vm"
 alias h="cd $HOME"
 
@@ -17,6 +20,7 @@ alias h="cd $HOME"
 alias v="vim"
 alias q="exit"
 alias t="todo.sh -d $HOME/.todo.cfg"
+alias ipython="cd $HOME/Projects/ground_zero/ipython && ipython notebook --pylab=inline"
 
 # Internet Protocol Addresses
 alias localip='ipconfig getifaddr en1'
@@ -25,6 +29,7 @@ alias ips="ifconfig -a | grep -o 'inet6\? \([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)
 # List files
 alias l="ls -Ga"
 alias ll="ls -lha"
+alias sl=ls # often screw this up
 # List directories
 alias dir='ls -l | grep "^d"'
 

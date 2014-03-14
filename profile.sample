@@ -1,46 +1,46 @@
 
+# Shell
+export SHELL=/usr/local/bin/zsh
+
 # System path
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11/bin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 
 # Editor
 export EDITOR=vim
 
+# Python with pyenv
+export PYENV_ROOT=$HOME/.pyenv
+eval "$(pyenv init -)"
+# export PATH=$PYENV_ROOT/shims:$PATH
+
 # Perl with plenv
-export PATH="$HOME/.plenv/bin:$PATH"
+# export PATH=$HOME/.plenv/shims:$PATH
 eval "$(plenv init -)"
 
-# Python with pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-
 # Ruby with rbenv
-export PATH=$HOME/.rbenv/bin:$PATH
+# export PATH=$HOME/.rbenv/shims:$PATH
 eval "$(rbenv init -)"
 
 # AutoENV
 source /usr/local/opt/autoenv/activate.sh
 
-# SmartCD
-[ -r "$HOME/.smartcd_config" ] && ( [ -n $BASH_VERSION ] || [ -n $ZSH_VERSION ] ) && source ~/.smartcd_config
-
-# SSH hosts' completing
-complete -o default -o nospace -W "$(/usr/bin/env ruby -ne 'puts $_.split(/[,\s]+/)[1..-1].reject{|host| host.match(/\*|\?/)} if $_.match(/^\s*Host\s+/);' < $HOME/.ssh/config)" scp sftp ssh
+# Added by the Heroku Toolbelt
+# export PATH=$PATH:/usr/local/heroku/bin
 
 # Java (JDK, JRE)
 export JAVA_HOME="$(/usr/libexec/java_home)"
 
 # Go & GVM
-source $HOME/.gvm/scripts/gvm
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+export GOPATH=$HOME/.go-lang
 
 # Oracle
-export ORACLE_HOME=<path to instant client>
-export DYLD_LIBRARY_PATH=$DYLD_PATH_LIBRARY:$ORACLE_HOME
-export PATH=$PATH:$DYLD_PATH_LIBRARY
+# export ORACLE_HOME=<path to instant client>
+# export DYLD_LIBRARY_PATH=$DYLD_PATH_LIBRARY:$ORACLE_HOME
+# export PATH=$PATH:$DYLD_PATH_LIBRARY
 
 # Amazon AWS EC2
-export EC2_HOME=/usr/local/Library/LinkedKegs/ec2-api-tools/jars
-export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)"
-export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
-export AWS_ACCESS_KEY=
-export AWS_SECRET_KEY=
+# export EC2_HOME=/usr/local/Library/LinkedKegs/ec2-api-tools/jars
+# export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)"
+# export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
+# export AWS_ACCESS_KEY=
+# export AWS_SECRET_KEY=
